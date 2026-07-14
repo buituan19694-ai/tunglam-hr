@@ -727,9 +727,9 @@ const STORE_KEY = 'meridian_hr_v31'; // v31: Level changed from text to number 1
 
 const DEFAULT_DATA = {
   company: {
-    name: 'Legacy Yên Tử - MGallery',
-    taxId: '5701234567',
-    address: 'Đường Trần Nhân Tông, Xã Thượng Yên Công, Uông Bí, Quảng Ninh',
+    name: 'Tùng Lâm Yên Tử',
+    taxId: '',
+    address: '',
     annualLeaveDays: 12,
     probationMonths: 2,
     workHours: 8,
@@ -740,7 +740,7 @@ const DEFAULT_DATA = {
     {id:'d3', name:'Housekeeping', head:'', color:'#7dd3c0', desc:'Buồng phòng, vệ sinh & dịch vụ phòng'},
     {id:'d4', name:'Food & Beverage', head:'', color:'#7ec699', desc:'Dịch vụ ẩm thực & nhà hàng'},
     {id:'d5', name:'Kitchen', head:'', color:'#e8b974', desc:'Bếp & chế biến ẩm thực'},
-    {id:'d6', name:'Engineering', head:'Vũ Văn Hưng', color:'#7eb6e8', desc:'Kỹ thuật, bảo trì, vận hành hạ tầng resort'},
+    {id:'d6', name:'Engineering', head:'', color:'#7eb6e8', desc:'Kỹ thuật, bảo trì, vận hành hạ tầng resort'},
     {id:'d7', name:'Finance', head:'', color:'#e57373', desc:'Tài chính, kế toán & thuế'},
     {id:'d8', name:'Sales & Marketing', head:'', color:'#d4a574', desc:'Kinh doanh, marketing & truyền thông'},
     {id:'d9', name:'People & Culture', head:'', color:'#a8b4f0', desc:'Nhân sự, đào tạo & văn hoá doanh nghiệp'},
@@ -749,39 +749,15 @@ const DEFAULT_DATA = {
     {id:'d12', name:'Revenue - Reservation', head:'', color:'#f0a8c4', desc:'Quản lý doanh thu & đặt phòng'},
   ],
   employees: [],
-  contracts: [
-    {id:'c1', empId:'e1', type:'indefinite', startDate:'2021-03-15', endDate:'', signedDate:'2021-03-15', notes:'HĐ chính thức'},
-    {id:'c2', empId:'e2', type:'indefinite', startDate:'2023-05-02', endDate:'', signedDate:'2023-05-02', notes:''},
-    {id:'c3', empId:'e3', type:'indefinite', startDate:'2022-08-10', endDate:'', signedDate:'2022-08-10', notes:''},
-    {id:'c4', empId:'e4', type:'term24', startDate:'2024-01-04', endDate:'2026-01-04', signedDate:'2024-01-04', notes:'Gia hạn lần 1'},
-    {id:'c5', empId:'e5', type:'term12', startDate:'2025-06-15', endDate:'2026-06-15', signedDate:'2025-06-15', notes:'Sắp hết hạn'},
-    {id:'c6', empId:'e10', type:'probation', startDate:'2026-03-15', endDate:'2026-05-15', signedDate:'2026-03-15', notes:'Đang thử việc'},
-  ],
+  contracts: [],
   leaves: [],
   jobs: [],
   candidates: [],
   courses: [],
-  kpiReviews: [
-    {id:'k1', empId:'e1', period:'Q1/2026', score:98.4, reviewer:'CEO', notes:'Xuất sắc, dẫn dắt team product tốt'},
-    {id:'k2', empId:'e2', period:'Q1/2026', score:97.2, reviewer:'CTO', notes:'Đóng góp lớn cho hạ tầng'},
-    {id:'k3', empId:'e3', period:'Q1/2026', score:96.8, reviewer:'CRO', notes:'Vượt chỉ tiêu doanh thu 20%'},
-    {id:'k4', empId:'e6', period:'Q1/2026', score:95.5, reviewer:'CPO', notes:'Redesign thành công'},
-    {id:'k5', empId:'e9', period:'Q1/2026', score:94.9, reviewer:'CTO', notes:'Code quality cao'},
-  ],
-  promotions: [
-    {id:'pr1', empId:'e1', date:'2026-03-15', effectiveDate:'2026-04-01', type:'combined', status:'completed', oldRole:'Senior PM', newRole:'Head of Product', oldLevel:'', newLevel:'', oldSalary:35000000, newSalary:48000000, proposedBy:'CEO', approvedBy:'CEO', reason:'Thành tích vượt trội, lead team product hiệu quả 2 năm liên tiếp', notes:'Đã thông báo và bắt đầu hiệu lực'},
-    {id:'pr2', empId:'e3', date:'2026-04-10', effectiveDate:'2026-05-01', type:'salary', status:'approved', oldRole:'Sales Director', newRole:'Sales Director', oldSalary:42000000, newSalary:50000000, proposedBy:'CRO', approvedBy:'CEO', reason:'Vượt KPI doanh thu Q1 +20%', notes:''},
-    {id:'pr3', empId:'e6', date:'2026-04-25', effectiveDate:'', type:'position', status:'reviewing', oldRole:'Senior Designer', newRole:'Design Lead', oldLevel:'', newLevel:'', proposedBy:'CPO', approvedBy:'', reason:'Đã lead 3 dự án redesign thành công, có khả năng dẫn dắt team', notes:'Chờ CEO duyệt'},
-  ],
-  disciplineRecords: [
-    {id:'d1', empId:'e4', date:'2026-02-15', level:'', reason:'Đi muộn 5 lần trong tháng', decidedBy:'Trưởng phòng Engineering', notes:'Lần đầu vi phạm, đã cam kết khắc phục', penalty:''},
-    {id:'d2', empId:'e8', date:'2026-04-20', level:'', reason:'Không hoàn thành KPI 2 tháng liên tục', decidedBy:'HR Director', notes:'Theo dõi trong 60 ngày tới', penalty:'Cắt 50% thưởng quý'},
-  ],
-  rewardRecords: [
-    {id:'r1', empId:'e1', date:'2026-01-15', type:'Bằng khen', reason:'Hoàn thành xuất sắc dự án X', awardedBy:'CEO', notes:'', amount:10000000},
-    {id:'r2', empId:'e3', date:'2026-03-10', type:(_lang==="en"?"Cash bonus":"Thưởng tiền"), reason:'Vượt chỉ tiêu doanh thu Q1 200%', awardedBy:'CRO', notes:'', amount:25000000},
-    {id:'r3', empId:'e2', date:'2026-04-05', type:(_lang==="en"?"Commendation":"Tuyên dương"), reason:'Đóng góp tích cực cho hệ thống', awardedBy:'CTO', notes:'Công bố toàn công ty', amount:0},
-  ],
+  kpiReviews: [],
+  promotions: [],
+  disciplineRecords: [],
+  rewardRecords: [],
   contractTemplates: {},
 
   resignations: [],       // đơn xin nghỉ việc — lưu trong workforce doc
